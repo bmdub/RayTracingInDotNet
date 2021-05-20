@@ -50,7 +50,7 @@ namespace RayTracingInDotNet.Scene
 			// Add a floor
 			const float groundDim = 400;
 
-			Textures.Add(Texture.LoadTexture(@"./assets/textures/Laminate Seamless Texture #3799.jpg"));
+			Textures.Add(Texture.LoadTexture(@"./assets/textures/laminate.jpg"));
 			var floor = Model.CreateGroundRect(new Vector3(0, 0, 0), groundDim, groundDim, Material.Dielectric(5.5f, Textures.Count - 1), groundDim / 16f);
 			Models.Add(floor);
 

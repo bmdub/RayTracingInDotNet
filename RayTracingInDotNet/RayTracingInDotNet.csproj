@@ -83,6 +83,9 @@
 	  <None Update="assets\textures\Laminate Seamless Texture #3799.jpg">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
+	  <None Update="assets\textures\laminate.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
 	  <None Update="assets\textures\land_ocean_ice_cloud_2048.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </None>
