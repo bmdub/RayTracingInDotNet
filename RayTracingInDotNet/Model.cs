@@ -78,19 +78,6 @@ namespace RayTracingInDotNet
 
 				for (int p = 0; p < pScene->MMaterials[i]->MNumProperties; p++)
 				{
-					/*
-						?mat.name, 0, 0, PtiString, 20
-						$mat.shadingm, 0, 0, PtiInteger, 4
-						$clr.ambient, 0, 0, PtiFloat, 12
-						$clr.diffuse, 0, 0, PtiFloat, 12
-						$clr.specular, 0, 0, PtiFloat, 12
-						$clr.emissive, 0, 0, PtiFloat, 12
-						$mat.shininess, 0, 0, PtiFloat, 4
-						$mat.opacity, 0, 0, PtiFloat, 4
-						$clr.transparent, 0, 0, PtiFloat, 12
-						$mat.refracti, 0, 0, PtiFloat, 4
-					*/
-
 					var key = pScene->MMaterials[i]->MProperties[p]->MKey;
 					var index = pScene->MMaterials[i]->MProperties[p]->MIndex;
 					var semantic = pScene->MMaterials[i]->MProperties[p]->MSemantic;
