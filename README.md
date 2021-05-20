@@ -39,3 +39,4 @@ You will need the [Vulkan SDK](https://vulkan.lunarg.com/sdk/home) from the offi
 - Optimize BLAS meshes by sharing identical ones across TLAS instances.
 - Add more materials / make them more flexible.
 - Allow a user to load external model files.
+- Modifying a shader file alone will not cause a recompile by Visual Studio; currently a _rebuild_ must be manually forced.
