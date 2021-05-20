@@ -98,7 +98,8 @@ namespace RayTracingInDotNet.Vulkan
 				{
 				}
 
-				_api.ExtDebugUtils?.DestroyDebugUtilsMessenger(_api.Instance.VkInstance, _debugMessenger, null);
+				if (_api.DebugLoggingEnabled)
+					_api.ExtDebugUtils?.DestroyDebugUtilsMessenger(_api.Instance.VkInstance, _debugMessenger, null);
 				_disposedValue = true;
 			}
 		}
