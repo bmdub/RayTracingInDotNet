@@ -57,7 +57,7 @@ namespace RayTracingInDotNet
 
 			var windowConfig = new WindowConfig()
 			{
-				Title = "Demo Window",
+				Title = "Ray Tracing in Dot Net",
 				Width = _options.Width,
 				Height = _options.Height,
 				CursorDisabled = false,
