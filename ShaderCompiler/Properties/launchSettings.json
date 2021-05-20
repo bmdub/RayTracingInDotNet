@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ShaderCompiler": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Users\\bwoeg\\source\\repos\\silktest\\pttest\" \"C:\\Users\\bwoeg\\source\\repos\\silktest\\pttest\\bin\\Debug\\net5.0\\/assets/shaders/\""
+    }
+  }
+}
