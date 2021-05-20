@@ -35,7 +35,7 @@ You will need the [Vulkan SDK](https://vulkan.lunarg.com/sdk/home) from the offi
 
 ## Todo
 
-- Needs a good denoiser (or _any_ denoiser, for that matter.)
+- Needs a good denoiser (or _any_ denoiser, for that matter.)  This is especially apparent in scenes that are never stable, thus can't accumulate rays (the Physics scene.)
 - Optimize BLAS meshes by sharing identical ones across TLAS instances.
 - Add more materials / make them more flexible.
 - Allow a user to load external model files.
