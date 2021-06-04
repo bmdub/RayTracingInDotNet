@@ -237,66 +237,7 @@ namespace RayTracingInDotNet
 
 		public static Model CreateSphere(in Vector3 center, float radius, in Material material, bool isProcedural)
 		{
-			int slices = 32;
-			int stacks = 16;
-
-			List<Vertex> vertices = new List<Vertex>();
-			List<uint> indices = new List<uint>();
-
-			float pi = 3.14159265358979f;
-
-			for (int j = 0; j <= stacks; j++)
-			{
-				float j0 = pi * j / stacks;
-
-				// Vertex
-				float v = radius * -MathF.Sin(j0);
-				float z = radius * MathF.Cos(j0);
-
-				// Normals		
-				float n0 = -MathF.Sin(j0);
-				float n1 = MathF.Cos(j0);
-
-				for (int i = 0; i <= slices; i++)
-				{
-					float i0 = 2 * pi * i / slices;
-
-					var position = new Vector3(
-						center.X + v * MathF.Sin(i0),
-						center.Y + z,
-						center.Z + v * MathF.Cos(i0));
-
-					var normal = new Vector3(
-						n0 * MathF.Sin(i0),
-						n1,
-						n0 * MathF.Cos(i0));
-
-					var texCoord = new Vector2((float)i / slices, (float)j / stacks);
-
-					vertices.Add(new Vertex(position, normal, texCoord, 0));
-				}
-			}
-
-			for (int j = 0; j < stacks; j++)
-			{
-				for (int i = 0; i < slices; i++)
-				{
-					var j0 = (j + 0) * (slices + 1);
-					var j1 = (j + 1) * (slices + 1);
-					var i0 = i + 0;
-					var i1 = i + 1;
-
-					indices.Add((uint)j0 + (uint)i0);
-					indices.Add((uint)j1 + (uint)i0);
-					indices.Add((uint)j1 + (uint)i1);
-
-					indices.Add((uint)j0 + (uint)i0);
-					indices.Add((uint)j1 + (uint)i1);
-					indices.Add((uint)j0 + (uint)i1);
-				}
-			}
-
-			return new Model(Matrix4x4.Identity, vertices, indices, new List<Material> { material }, isProcedural ? new Sphere(center, radius) : null);
+			return new Model(Matrix4x4.Identity, new List<Vertex>() { new Vertex() }, new List<uint>() { 0 }, new List<Material> { material }, isProcedural ? new Sphere(center, radius) : null);
 		}
 	}
 }

@@ -35,7 +35,6 @@ namespace RayTracingInDotNet.Vulkan
 		private PresentModeKHR _presentMode;
 		private SwapChain _swapChain;
 		private DepthBuffer _depthBuffer;
-		private GraphicsPipeline _graphicsPipeline;
 		private List<Framebuffer> _swapChainFramebuffers;
 		private CommandBuffers _commandBuffers;
 		private RayTracingPipeline _rayTracingPipeline;
@@ -61,6 +60,7 @@ namespace RayTracingInDotNet.Vulkan
 		private DeviceMemory _outputImageMemory;
 		private ImageView _outputImageView;
 		private AccelerationStructureInstanceKHR[] _instances;
+		private RenderPass _renderPass;
 		private bool _disposedValue;
 
 		public unsafe VulkanRenderer(UserSettings userSettings, Window window, IScene scene, CameraInitialState cameraInitialState, ILogger logger, bool enableDebugLogging)
@@ -412,13 +412,13 @@ namespace RayTracingInDotNet.Vulkan
 				_uniformBuffers.Add(new UniformBuffer(_api));
 			}
 
-			_graphicsPipeline?.Dispose();
-			_graphicsPipeline = new GraphicsPipeline(_api, _swapChain, _depthBuffer, _uniformBuffers, _vulkanScene);
+			_renderPass?.Dispose();
+			_renderPass = new RenderPass(_api, _swapChain, _depthBuffer, AttachmentLoadOp.Clear, AttachmentLoadOp.Clear);
 
 			DisposeListItems(_swapChainFramebuffers);
 			_swapChainFramebuffers = new List<Framebuffer>(_swapChain.ImageViews.Count);
 			foreach (var imageView in _swapChain.ImageViews)
-				_swapChainFramebuffers.Add(new Framebuffer(_api, _swapChain, _depthBuffer, imageView, _graphicsPipeline.RenderPass));
+				_swapChainFramebuffers.Add(new Framebuffer(_api, _swapChain, _depthBuffer, imageView, _renderPass));
 
 			_commandBuffers?.Dispose();
 			_commandBuffers = new CommandBuffers(_api, _commandPool, (uint)_swapChainFramebuffers.Count);
@@ -694,7 +694,7 @@ namespace RayTracingInDotNet.Vulkan
 				_accumulationImageMemory.Dispose();
 				_commandBuffers.Dispose();
 				DisposeListItems(_swapChainFramebuffers);
-				_graphicsPipeline.Dispose();
+				_renderPass.Dispose();
 				DisposeListItems(_uniformBuffers);
 				DisposeListItems(_inFlightFences);
 				DisposeListItems(_renderFinishedSemaphores);
