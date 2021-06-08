@@ -34,6 +34,10 @@ vec2 GetSphereTexCoord(const vec3 point)
 
 void main()
 {
+	// Ignore re-collisions with same object, which causes artifacts.
+	if(Ray.PrevInstanceID == gl_InstanceID)
+		return;
+
 	// Get the material.
 	const uvec2 offsets = Offsets[gl_InstanceCustomIndexEXT];
 	const mat4 transform = Transforms[gl_InstanceCustomIndexEXT];
@@ -52,12 +56,13 @@ void main()
 	const vec4 sphere = Spheres[gl_InstanceCustomIndexEXT];
 	const vec3 center = vec3(transform * vec4(sphere.xyz, 1));
 	const float radius = sphere.w;
-	//vec3 point = vec3(transformRot * vec4(gl_WorldRayOriginEXT + gl_HitTEXT * gl_WorldRayDirectionEXT, 1));
 	vec3 point = gl_WorldRayOriginEXT + gl_HitTEXT * gl_WorldRayDirectionEXT;
 	vec3 normal = (point - center) / radius;
 	const vec2 texCoord = GetSphereTexCoord(vec3(transformRot * vec4(normal, 1)));
 	
-	Ray = Scatter(material, gl_WorldRayDirectionEXT, normal, texCoord, gl_HitTEXT, Ray.RandomSeed);
+	Ray = Scatter(material, gl_WorldRayDirectionEXT, normal, texCoord, gl_HitTEXT, Ray.RandomSeed);	
+	
+	Ray.PrevInstanceID = gl_InstanceID;
 
 	//debugPrintfEXT("%d", gl_InstanceCustomIndexEXT);	
 }
