@@ -19,14 +19,14 @@
     <PackageReference Include="CommandLineParser" Version="2.8.0" />
     <PackageReference Include="ImGui.NET" Version="1.78.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Silk.NET.Assimp" Version="2.11.0" />
-    <PackageReference Include="Silk.NET.Core" Version="2.11.0" />
-    <PackageReference Include="Silk.NET.Input" Version="2.11.0" />
-    <PackageReference Include="Silk.NET.Input.Extensions" Version="2.11.0" />
-    <PackageReference Include="Silk.NET.Vulkan" Version="2.11.0" />
-    <PackageReference Include="Silk.NET.Vulkan.Extensions.EXT" Version="2.11.0" />
-    <PackageReference Include="Silk.NET.Vulkan.Extensions.KHR" Version="2.11.0" />
-    <PackageReference Include="Silk.NET.Windowing" Version="2.11.0" />
+    <PackageReference Include="Silk.NET.Assimp" Version="2.4.0" />
+    <PackageReference Include="Silk.NET.Core" Version="2.4.0" />
+    <PackageReference Include="Silk.NET.Input" Version="2.4.0" />
+    <PackageReference Include="Silk.NET.Input.Extensions" Version="2.4.0" />
+    <PackageReference Include="Silk.NET.Vulkan" Version="2.4.0" />
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.EXT" Version="2.4.0" />
+    <PackageReference Include="Silk.NET.Vulkan.Extensions.KHR" Version="2.4.0" />
+    <PackageReference Include="Silk.NET.Windowing" Version="2.4.0" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
   </ItemGroup>
 
