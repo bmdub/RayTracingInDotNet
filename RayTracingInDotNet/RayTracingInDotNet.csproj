@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 
@@ -27,7 +27,7 @@
     <PackageReference Include="Silk.NET.Vulkan.Extensions.EXT" Version="2.11.0" />
     <PackageReference Include="Silk.NET.Vulkan.Extensions.KHR" Version="2.11.0" />
     <PackageReference Include="Silk.NET.Windowing" Version="2.11.0" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
+    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.4" />
   </ItemGroup>
 
   <ItemGroup>
