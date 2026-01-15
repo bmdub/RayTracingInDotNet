@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <RunPostBuildEvent>Always</RunPostBuildEvent>
   </PropertyGroup>
 
@@ -98,7 +98,7 @@
 	</ItemGroup>
 
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-	  <Exec Command="&quot;../ShaderCompiler/bin/$(ConfigurationName)/net5.0/ShaderCompiler.exe&quot; &quot;$(ProjectDir)/&quot; &quot;$(TargetDir)/assets/shaders/&quot;" />
+	  <Exec Command="&quot;../ShaderCompiler/bin/$(ConfigurationName)/net10.0/ShaderCompiler.exe&quot; &quot;$(ProjectDir)/&quot; &quot;$(TargetDir)/assets/shaders/&quot;" />
 	</Target>
 	
 </Project>
